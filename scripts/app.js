@@ -144,6 +144,7 @@
 	}
 
 	// Stamp copy buttons
+/*
 	function addStampCopyButtons(){
 		var stamps = document.getElementsByClassName("stamp");
 		for(var i=0;i<stamps.length;i++){
@@ -173,6 +174,60 @@
 			if(el.parentNode){ el.parentNode.insertBefore(btn, el.nextSibling); }
 		}
 	}
+*/
+
+
+
+
+function addStampCopyButtons(){
+	var stamps = document.getElementsByClassName("stamp");
+
+	function animateCopyButton(btn){
+		btn.classList.remove("icon-copy");
+		btn.classList.add("icon-check");
+		setTimeout(function(){
+			btn.classList.remove("icon-check");
+			btn.classList.add("icon-copy");
+		}, 1200);
+	}
+
+	for(var i=0;i<stamps.length;i++){
+		var el = stamps[i];
+		if(el.nextSibling && el.nextSibling.nodeType === 1 &&
+			 (el.nextSibling.className || "").indexOf("icon-btn") !== -1){
+			continue;
+		}
+		var btn = document.createElement("button");
+		btn.setAttribute("type","button");
+		btn.setAttribute("class","copy-stamp icon-btn icon-copy");
+		btn.setAttribute("aria-label","Copy this logo");
+		btn.setAttribute("title","Copy");
+		btn.innerHTML = '<span class="sr">Copy</span>';
+
+		btn.onclick = (function(target, button){
+			return function(){
+				var pre	= (target.getElementsByClassName("pre")[0]	|| {textContent:""}).textContent;
+				var core = (target.getElementsByClassName("core")[0] || {textContent:""}).textContent;
+				var post = (target.getElementsByClassName("post")[0] || {textContent:""}).textContent;
+				var parts = [];
+				if(pre){ parts.push(pre); }
+				if(core){ parts.push(core); }
+				if(post){ parts.push(post); }
+				var text = parts.join(" ");
+				copyText(text);
+				animateCopyButton(button);
+			};
+		})(el, btn);
+
+		if(el.parentNode){ el.parentNode.insertBefore(btn, el.nextSibling); }
+	}
+}
+
+
+
+
+
+
 
 	// Shuffle
 	function shuffleStamps(){
