@@ -1,0 +1,69 @@
+# Contains local signing credentials — do not track in version control (seriously, don't commit!)
+keystore.properties
+
+# === Gradle ===
+.gradle/
+build/
+*/build/
+!gradle/wrapper/gradle-wrapper.jar
+!gradlew
+!gradlew.bat
+!gradle/wrapper/
+
+# === Gradle Subfolders (extra strict for modules like unkaisdk) ===
+**/build/.transforms/
+**/build/generated/
+**/build/intermediates/
+**/build/kotlin/
+**/build/outputs/
+**/build/tmp/
+**/build/kspCaches/
+
+# === Local Config ===
+local.properties
+*.iml
+.idea/
+.DS_Store
+.externalNativeBuild/
+captures/
+
+# === Executables (if submodules have their own) ===
+# (kept empty — now tracking gradlew scripts and wrapper)
+
+# === Logs ===
+*.log
+*.log.*
+
+# === Keystore & Signing ===
+*.keystore
+*.jks
+**/debug.keystore
+**/*.keystore
+**/*.jks
+
+# === OS Junk ===
+*.swp
+*.swo
+*~
+Thumbs.db
+ehthumbs.db
+desktop.ini
+
+# === Rime/Input method-specific configs (tweak the path if needed) ===
+/sdcard/rime/*
+!/sdcard/rime/*.schema.yaml
+
+# === Mistaken tarball or backup ===
+/4
+*.tar.gz
+
+# === adbs (adb setup script) ===
+.adbs/
+**/.adbs/
+
+# === Backup directories ===
+.bk/
+**/.bk/
+
+Unknown
+
