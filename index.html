@@ -19,50 +19,55 @@
 
   <style type="text/css">
   /*<![CDATA[*/
-    :root { --fg:#e6e6e6; --bg:#111; --muted:#9aa0a6; --accent:#a78bfa; }
+    :root { --fg:#e6e6e6; --bg:#111; --muted:#9aa0a6; --accent:#a78bfa; --btn:#2a2a2a; --btnb:#363636; }
     html,body{margin:0;padding:0;background:var(--bg);color:var(--fg);
-      font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI",
-      Roboto, "Noto Sans", "Helvetica Neue", Arial, "Apple Color Emoji",
-      "Segoe UI Emoji"; line-height:1.6;}
+      font-family: ui-sans-serif,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Noto Sans","Helvetica Neue",Arial,"Apple Color Emoji","Segoe UI Emoji";
+      line-height:1.6;}
     .wrap{max-width:820px;margin:48px auto;padding:0 20px;}
     .stamp{display:inline-block;background:#1f1f1f;border:1px solid #2a2a2a;
-      padding:2px 6px;border-radius:6px;font-family:ui-monospace, "SFMono-Regular",
-      Menlo, Consolas, "Liberation Mono", monospace;color:var(--muted);}
+      padding:2px 6px;border-radius:6px;font-family:ui-monospace,"SFMono-Regular",Menlo,Consolas,"Liberation Mono",monospace;color:var(--muted);}
     h1{font-size:2rem;margin:12px 0 8px;}
     h2{font-size:1.25rem;margin:28px 0 8px;color:var(--accent);}
-    p{margin:10px 0;}
-    hr{border:none;border-top:1px dashed #333;margin:28px 0;}
+    p{margin:10px 0;} hr{border:none;border-top:1px dashed #333;margin:28px 0;}
     .foot{margin-top:36px;color:var(--muted);font-size:.95rem}
     .box{background:#151515;border:1px solid #2b2b2b;border-radius:12px;padding:18px 16px;}
-    .list{margin:10px 0 0 18px}
-    .stamp-row{margin:18px 0}
-    a{color:#c4b5fd;text-decoration:none}
-    a:hover{text-decoration:underline}
+    .list{margin:10px 0 0 18px} .stamp-row{margin:18px 0}
+    a{color:#c4b5fd;text-decoration:none} a:hover{text-decoration:underline}
+    .actions{display:flex;gap:10px;flex-wrap:wrap;margin:10px 0 6px}
+    .btn{background:var(--btn);border:1px solid var(--btnb);padding:6px 10px;border-radius:8px;color:#eaeaea;cursor:pointer}
+    .btn:active{transform:translateY(1px)}
+    .sr{position:absolute;left:-9999px}
   /*]]>*/
   </style>
 </head>
 <body>
   <div class="wrap">
-    <div class="stamp-row">
-      <code class="stamp">9d2f1a!#$%^&amp;* - [ MMHL ] - *&amp;^%$#!e77b44</code>
+    <div class="actions">
+      <button id="shuffle" class="btn" type="button">Shuffle stamps</button>
+      <button id="copy" class="btn" type="button">Copy License</button>
+      <span class="sr" id="copied" aria-live="polite"></span>
     </div>
+
+    <p class="stamp-row">
+      <code class="stamp"><span class="pre">9d2f1a</span><span class="core">!#$%^&amp;* - [ MMHL ] - *&amp;^%$#!</span><span class="post">e77b44</span></code>
+    </p>
 
     <h1>Make Me Happy License (MMHL)</h1>
     <p class="stamp-row">
-      <code class="stamp">!#$%^&amp;* - [ MMHL ] - *&amp;^%$#!</code>
+      <code class="stamp"><span class="pre"></span><span class="core">!#$%^&amp;* - [ MMHL ] - *&amp;^%$#!</span><span class="post"></span></code>
     </p>
 
-    <div class="box">
+    <div class="box" id="colloquial">
       <h2>Colloquial Version</h2>
       <p>Use, copy, or adapt anything here once you make me happy.<br />
       Try flattering me, buttering me up, bribing me, or sleeping with me. 😉</p>
     </div>
 
     <p class="stamp-row">
-      <code class="stamp">- [ MMHL ] -</code>
+      <code class="stamp"><span class="pre"></span><span class="core">- [ MMHL ] -</span><span class="post"></span></code>
     </p>
 
-    <div class="box">
+    <div class="box" id="formal">
       <h2>Formalized Version (still MMHL)</h2>
       <p>Permission is hereby granted to any person obtaining a copy of this repository to use, copy, or adapt the materials, provided that the following condition is met:</p>
       <p>The licensee must first <span class="stamp">make the licensor happy</span>. Acceptable methods include, but are not limited to:</p>
@@ -76,16 +81,67 @@
     </div>
 
     <hr />
-
     <p><em>No happiness, no license.</em></p>
 
     <p class="stamp-row">
-      <code class="stamp">3f9a8c!#$%^&amp;* - [ MMHL ] - *&amp;^%$#!b72e10</code>
+      <code class="stamp"><span class="pre">3f9a8c</span><span class="core">!#$%^&amp;* - [ MMHL ] - *&amp;^%$#!</span><span class="post">b72e10</span></code>
     </p>
 
     <div class="foot">
       <p><a href="https://github.com/reedlai/mmhl">View source on GitHub</a></p>
     </div>
   </div>
+
+  <script type="text/javascript">
+  //<![CDATA[
+  (function(){
+    function rndHex(n){for(var s="",i=0;i<n;i++){s+=("0123456789abcdef".charAt(Math.floor(Math.random()*16)));}return s;}
+    function shuffleStamps(){
+      var stamps=document.getElementsByClassName('stamp');
+      for(var i=0;i<stamps.length;i++){
+        var pre=stamps[i].getElementsByClassName('pre')[0];
+        var post=stamps[i].getElementsByClassName('post')[0];
+        if(pre){pre.textContent=rndHex(6);}
+        if(post){post.textContent=rndHex(6);}
+      }
+    }
+    function copyLicense(){
+      var txt=[
+        "Make Me Happy License (MMHL)",
+        "",
+        "Colloquial:",
+        "Use, copy, or adapt anything here once you make me happy.",
+        "Try flattering me, buttering me up, bribing me, or sleeping with me.",
+        "",
+        "Formalized:",
+        "Permission is hereby granted to any person obtaining a copy of this repository to use, copy, or adapt the materials, provided that the following condition is met:",
+        "The licensee must first make the licensor happy. Acceptable methods include, but are not limited to:",
+        "1) Offering sincere praise and flattery.",
+        "2) Excessive buttering-up in both public and private contexts.",
+        "3) Delivering bribes of acceptable monetary or non-monetary value.",
+        "4) Engaging in intimate relations with the licensor, at the licensor’s sole discretion.",
+        "",
+        "Failure to comply will result in immediate revocation of all rights, plus possible public ridicule.",
+        "No happiness, no license."
+      ].join("\n");
+      try{
+        navigator.clipboard.writeText(txt).then(function(){
+          var s=document.getElementById('copied'); if(s){s.textContent="Copied."; setTimeout(function(){s.textContent="";},1500);}
+        });
+      }catch(e){
+        // Fallback
+        var ta=document.createElement('textarea'); ta.value=txt; ta.style.position='fixed'; ta.style.opacity='0'; document.body.appendChild(ta); ta.select();
+        try{document.execCommand('copy');}catch(_){}
+        document.body.removeChild(ta);
+      }
+    }
+    var sh=document.getElementById('shuffle'); if(sh){sh.onclick=shuffleStamps;}
+    var cp=document.getElementById('copy'); if(cp){cp.onclick=copyLicense;}
+    // initial randomization
+    shuffleStamps();
+  })();
+  //]]>
+  </script>
 </body>
 </html>
+
