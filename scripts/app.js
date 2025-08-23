@@ -156,7 +156,16 @@
 			btn.setAttribute("class","copy-stamp");
 			btn.setAttribute("aria-label","Copy this logo");
 			btn.setAttribute("title","Copy");
-			btn.textContent = "📋";
+			// btn.textContent = "📋";
+
+			// Replace emoji with an image icon
+			var img = document.createElement('img');
+			img.className = 'copy-icon';
+			img.src = './assets/icons/copy.svg';
+			img.alt = 'Copy';
+			img.width = 14; img.height = 14;
+			btn.appendChild(img);
+
 			btn.onclick = (function(target){
 				return function(){
 					var pre	= (target.getElementsByClassName("pre")[0]	|| {textContent:""}).textContent;
