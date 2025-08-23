@@ -1,147 +1,416 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
-  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+	"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head>
-  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-  <title>Make Me Happy License (MMHL)</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<title>Make Me Happy License (MMHL)</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
 
-  <!-- Basic SEO / Open Graph -->
-  <meta name="description" content="Make Me Happy License (MMHL) — a proudly human license. No happiness, no license." />
-  <meta property="og:title" content="Make Me Happy License (MMHL)" />
-  <meta property="og:description" content="Use, copy, or adapt once you make me happy. No happiness, no license." />
-  <meta property="og:url" content="https://reedlai.github.io/mmhl/" />
-  <meta property="og:type" content="website" />
+	<!-- Basic SEO / Open Graph -->
+	<meta name="description" content="Make Me Happy License (MMHL) — a proudly human license. No happiness, no license." />
+	<meta property="og:title" content="Make Me Happy License (MMHL)" />
+	<meta property="og:description" content="Use, copy, or adapt once you make me happy. No happiness, no license." />
+	<meta property="og:url" content="https://reedlai.github.io/mmhl/" />
+	<meta property="og:type" content="website" />
 
-  <!-- Inline favicon (emoji) -->
-  <link rel="icon" href="data:image/svg+xml,&lt;svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'&gt;&lt;text y='.9em' font-size='56'&gt;🙂&lt;/text&gt;&lt;/svg&gt;" />
+	<!-- Discoverability & theming -->
+	<link rel="canonical" href="https://reedlai.github.io/mmhl/" />
+	<meta name="robots" content="index,follow" />
+	<meta name="theme-color" content="#111111" />
+	<meta name="color-scheme" content="dark light" />
+	<meta name="twitter:card" content="summary" />
 
-  <style type="text/css">
-  /*<![CDATA[*/
-    :root { --fg:#e6e6e6; --bg:#111; --muted:#9aa0a6; --accent:#a78bfa; --btn:#2a2a2a; --btnb:#363636; }
-    html,body{margin:0;padding:0;background:var(--bg);color:var(--fg);
-      font-family: ui-sans-serif,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Noto Sans","Helvetica Neue",Arial,"Apple Color Emoji","Segoe UI Emoji";
-      line-height:1.6;}
-    .wrap{max-width:820px;margin:48px auto;padding:0 20px;}
-    .stamp{display:inline-block;background:#1f1f1f;border:1px solid #2a2a2a;
-      padding:2px 6px;border-radius:6px;font-family:ui-monospace,"SFMono-Regular",Menlo,Consolas,"Liberation Mono",monospace;color:var(--muted);}
-    h1{font-size:2rem;margin:12px 0 8px;}
-    h2{font-size:1.25rem;margin:28px 0 8px;color:var(--accent);}
-    p{margin:10px 0;} hr{border:none;border-top:1px dashed #333;margin:28px 0;}
-    .foot{margin-top:36px;color:var(--muted);font-size:.95rem}
-    .box{background:#151515;border:1px solid #2b2b2b;border-radius:12px;padding:18px 16px;}
-    .list{margin:10px 0 0 18px} .stamp-row{margin:18px 0}
-    a{color:#c4b5fd;text-decoration:none} a:hover{text-decoration:underline}
-    .actions{display:flex;gap:10px;flex-wrap:wrap;margin:10px 0 6px}
-    .btn{background:var(--btn);border:1px solid var(--btnb);padding:6px 10px;border-radius:8px;color:#eaeaea;cursor:pointer}
-    .btn:active{transform:translateY(1px)}
-    .sr{position:absolute;left:-9999px}
-  /*]]>*/
-  </style>
+	<!-- Security: allow inline script (single-file), allow GitHub API -->
+	<meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' data:; style-src 'self' 'unsafe-inline'; script-src 'self' 'unsafe-inline'; connect-src 'self' https://api.github.com; base-uri 'none'; form-action 'none'" />
+	<meta name="referrer" content="no-referrer" />
+
+	<!-- Inline favicon (emoji) -->
+	<link rel="icon" href="data:image/svg+xml,&lt;svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'&gt;&lt;text y='.9em' font-size='56'&gt;🙂&lt;/text&gt;&lt;/svg&gt;" />
+
+	<style type="text/css">
+	/*<![CDATA[*/
+		:root { --fg:#e6e6e6; --bg:#111; --muted:#9aa0a6; --accent:#a78bfa; --btn:#2a2a2a; --btnb:#363636; }
+		html,body{margin:0;padding:0;background:var(--bg);color:var(--fg);
+			font-family: ui-sans-serif,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Noto Sans","Helvetica Neue",Arial,"Apple Color Emoji","Segoe UI Emoji";
+			line-height:1.6;}
+		.wrap{max-width:820px;margin:48px auto;padding:0 20px;}
+		.stamp{display:inline-block;background:#1f1f1f;border:1px solid #2a2a2a;
+			padding:2px 6px;border-radius:6px;font-family:ui-monospace,"SFMono-Regular",Menlo,Consolas,"Liberation Mono",monospace;color:var(--muted);}
+		h1{font-size:2rem;margin:12px 0 8px;}
+		h2{font-size:1.25rem;margin:28px 0 8px;color:var(--accent);}
+		p{margin:10px 0;} hr{border:none;border-top:1px dashed #333;margin:28px 0;}
+		.foot{margin-top:36px;color:var(--muted);font-size:.95rem}
+		.box{background:#151515;border:1px solid #2b2b2b;border-radius:12px;padding:18px 16px;}
+		.list{margin:10px 0 0 18px} .stamp-row{margin:18px 0}
+		a{color:#c4b5fd;text-decoration:none} a:hover{text-decoration:underline}
+		.actions{display:flex;gap:10px;flex-wrap:wrap;margin:10px 0 6px}
+		.btn{background:var(--btn);border:1px solid var(--btnb);padding:6px 10px;border-radius:8px;color:#eaeaea;cursor:pointer}
+		.btn:active{transform:translateY(1px)}
+		.sr{position:absolute;left:-9999px}
+
+		/* Light scheme */
+		@media (prefers-color-scheme: light){
+			:root{--fg:#111; --bg:#fff; --muted:#475569; --accent:#5b21b6; --btn:#f1f5f9; --btnb:#e2e8f0;}
+			a{color:#4338ca}
+			.stamp{background:#f8fafc;border-color:#e2e8f0;color:#334155}
+			.box{background:#ffffff;border-color:#e2e8f0}
+			body{background:var(--bg);color:var(--fg)}
+		}
+
+		/* Print-friendly */
+		@media print{
+			html,body{background:#fff;color:#000}
+			.actions,.stamp-row{display:none !important}
+			.wrap{max-width:100%;padding:0}
+			.box{background:#fff;border:1px solid #000}
+			a{color:#000;text-decoration:underline}
+		}
+	/*]]>*/
+	</style>
+
+	<!-- Structured data -->
+	<script type="application/ld+json">
+	{
+		"@context":"https://schema.org",
+		"@type":"CreativeWork",
+		"name":"Make Me Happy License (MMHL)",
+		"license":"https://reedlai.github.io/mmhl/",
+		"description":"A proudly human license. Use, copy, or adapt once you make me happy.",
+		"inLanguage":"en"
+	}
+	</script>
 </head>
 <body>
-  <div class="wrap">
-    <div class="actions">
-      <button id="shuffle" class="btn" type="button">Shuffle stamps</button>
-      <button id="copy" class="btn" type="button">Copy License</button>
-      <span class="sr" id="copied" aria-live="polite"></span>
-    </div>
+	<div class="wrap" role="main">
+		<div class="actions">
+			<button id="shuffle" class="btn" type="button" aria-label="Shuffle visual stamps">Shuffle stamps</button>
+			<button id="copy_plain" class="btn" type="button">Copy Text</button>
+			<button id="copy_md" class="btn" type="button">Copy Markdown</button>
+			<button id="copy_spdx" class="btn" type="button" title="SPDX custom identifier">Copy SPDX</button>
+			<button id="download" class="btn" type="button">Download LICENSE.txt</button>
+			<button id="permalink" class="btn" type="button">Permalink</button>
+			<button id="share" class="btn" type="button">Share</button>
+			<span class="sr" id="copied" aria-live="polite"></span>
+		</div>
 
-    <p class="stamp-row">
-      <code class="stamp"><span class="pre">9d2f1a</span><span class="core">!#$%^&amp;* - [ MMHL ] - *&amp;^%$#!</span><span class="post">e77b44</span></code>
-    </p>
+		<!-- version stamp -->
+		<p class="stamp-row">
+			<code class="stamp">
+				<span class="pre" id="ver_left">ver</span>
+				<span class="core" id="ver_core">MMHL v1.0.dev</span>
+				<span class="post" id="ver_right">dev</span>
+			</code>
+		</p>
 
-    <h1>Make Me Happy License (MMHL)</h1>
-    <p class="stamp-row">
-      <code class="stamp"><span class="pre"></span><span class="core">!#$%^&amp;* - [ MMHL ] - *&amp;^%$#!</span><span class="post"></span></code>
-    </p>
+		<h1>Make Me Happy License (MMHL)</h1>
 
-    <div class="box" id="colloquial">
-      <h2>Colloquial Version</h2>
-      <p>Use, copy, or adapt anything here once you make me happy.<br />
-      Try flattering me, buttering me up, bribing me, or sleeping with me. 😉</p>
-    </div>
+		<!-- Dynamic stamps row -->
+		<p class="stamp-row">
+			<code class="stamp"><span class="pre"></span><span class="core">!#$%^&amp;* - [ MMHL ] - *&amp;^%$#!</span><span class="post"></span></code>
+		</p>
 
-    <p class="stamp-row">
-      <code class="stamp"><span class="pre"></span><span class="core">- [ MMHL ] -</span><span class="post"></span></code>
-    </p>
+		<!-- Colloquial (rendered from single source) -->
+		<div class="box" id="colloquial">
+			<h2>Colloquial Version</h2>
+			<div id="colloquial_body"></div>
+		</div>
 
-    <div class="box" id="formal">
-      <h2>Formalized Version (still MMHL)</h2>
-      <p>Permission is hereby granted to any person obtaining a copy of this repository to use, copy, or adapt the materials, provided that the following condition is met:</p>
-      <p>The licensee must first <span class="stamp">make the licensor happy</span>. Acceptable methods include, but are not limited to:</p>
-      <ol class="list">
-        <li>Offering sincere praise and flattery.</li>
-        <li>Excessive buttering-up in both public and private contexts.</li>
-        <li>Delivering bribes of acceptable monetary or non-monetary value.</li>
-        <li>Engaging in intimate relations with the licensor, at the licensor’s sole discretion.</li>
-      </ol>
-      <p>Failure to comply will result in immediate revocation of all rights, plus possible public ridicule. 😉</p>
-    </div>
+		<p class="stamp-row">
+			<code class="stamp"><span class="pre"></span><span class="core">- [ MMHL ] -</span><span class="post"></span></code>
+		</p>
 
-    <hr />
-    <p><em>No happiness, no license.</em></p>
+		<!-- Formal (rendered from single source) -->
+		<div class="box" id="formal">
+			<h2>Formalized Version (still MMHL)</h2>
+			<p id="formal_intro"></p>
+			<p id="formal_condition"></p>
+			<ol class="list" id="formal_list"></ol>
+			<p id="formal_outro"></p>
+		</div>
 
-    <p class="stamp-row">
-      <code class="stamp"><span class="pre">3f9a8c</span><span class="core">!#$%^&amp;* - [ MMHL ] - *&amp;^%$#!</span><span class="post">b72e10</span></code>
-    </p>
+		<hr />
+		<p><em>No happiness, no license.</em></p>
 
-    <div class="foot">
-      <p><a href="https://github.com/reedlai/mmhl">View source on GitHub</a></p>
-    </div>
-  </div>
+		<!-- Short digest preview of the generated LICENSE text -->
+		<p class="stamp-row">
+			<code class="stamp">
+				<span class="pre">MMHL</span>
+				<span class="core" id="digest_core">sha256:pending</span>
+				<span class="post">text</span>
+			</code>
+		</p>
 
-  <script type="text/javascript">
-  //<![CDATA[
-  (function(){
-    function rndHex(n){for(var s="",i=0;i<n;i++){s+=("0123456789abcdef".charAt(Math.floor(Math.random()*16)));}return s;}
-    function shuffleStamps(){
-      var stamps=document.getElementsByClassName('stamp');
-      for(var i=0;i<stamps.length;i++){
-        var pre=stamps[i].getElementsByClassName('pre')[0];
-        var post=stamps[i].getElementsByClassName('post')[0];
-        if(pre){pre.textContent=rndHex(6);}
-        if(post){post.textContent=rndHex(6);}
-      }
-    }
-    function copyLicense(){
-      var txt=[
-        "Make Me Happy License (MMHL)",
-        "",
-        "Colloquial:",
-        "Use, copy, or adapt anything here once you make me happy.",
-        "Try flattering me, buttering me up, bribing me, or sleeping with me.",
-        "",
-        "Formalized:",
-        "Permission is hereby granted to any person obtaining a copy of this repository to use, copy, or adapt the materials, provided that the following condition is met:",
-        "The licensee must first make the licensor happy. Acceptable methods include, but are not limited to:",
-        "1) Offering sincere praise and flattery.",
-        "2) Excessive buttering-up in both public and private contexts.",
-        "3) Delivering bribes of acceptable monetary or non-monetary value.",
-        "4) Engaging in intimate relations with the licensor, at the licensor’s sole discretion.",
-        "",
-        "Failure to comply will result in immediate revocation of all rights, plus possible public ridicule.",
-        "No happiness, no license."
-      ].join("\n");
-      try{
-        navigator.clipboard.writeText(txt).then(function(){
-          var s=document.getElementById('copied'); if(s){s.textContent="Copied."; setTimeout(function(){s.textContent="";},1500);}
-        });
-      }catch(e){
-        // Fallback
-        var ta=document.createElement('textarea'); ta.value=txt; ta.style.position='fixed'; ta.style.opacity='0'; document.body.appendChild(ta); ta.select();
-        try{document.execCommand('copy');}catch(_){}
-        document.body.removeChild(ta);
-      }
-    }
-    var sh=document.getElementById('shuffle'); if(sh){sh.onclick=shuffleStamps;}
-    var cp=document.getElementById('copy'); if(cp){cp.onclick=copyLicense;}
-    // initial randomization
-    shuffleStamps();
-  })();
-  //]]>
-  </script>
+		<div class="foot">
+			<p><small>Shortcuts: S=shuffle, C=copy text, M=copy markdown, X=copy SPDX, P=permalink, D=download</small></p>
+			<p><a href="https://github.com/reedlai/mmhl">View source on GitHub</a></p>
+		</div>
+	</div>
+
+	<script type="text/javascript">
+	//<![CDATA[
+	(function(){
+		"use strict";
+
+		// --- Versioning: 1.0.<git short sha> (fallback 1.0.dev) ---
+		var BASE_VERSION = "1.0";
+		var version = BASE_VERSION + ".dev";
+		var short_sha = "dev";
+
+		// --- Single source of truth: license data (edit here only) ---
+		var LICENSE_DATA = {
+			title: "Make Me Happy License (MMHL)",
+			colloquial_lines: [
+				"Use, copy, or adapt anything here once you make me happy.",
+				"Try flattering me, buttering me up, bribing me, or sleeping with me. 😉"
+			],
+			formal_intro: "Permission is hereby granted to any person obtaining a copy of this repository to use, copy, or adapt the materials, provided that the following condition is met:",
+			formal_condition: "The licensee must first make the licensor happy. Acceptable methods include, but are not limited to:",
+			formal_items: [
+				"Offering sincere praise and flattery.",
+				"Excessive buttering-up in both public and private contexts.",
+				"Delivering bribes of acceptable monetary or non-monetary value.",
+				"Engaging in intimate relations with the licensor, at the licensor’s sole discretion."
+			],
+			formal_outro: "Failure to comply will result in immediate revocation of all rights, plus possible public ridicule.",
+			slogan: "No happiness, no license."
+		};
+
+		// --- Seeded RNG so stamps can be reproduced by ?seed=... ---
+		function mulberry32(a){
+			return function(){
+				var t = a += 0x6D2B79F5;
+				t = Math.imul(t ^ (t >>> 15), 1 | t);
+				t ^= t + Math.imul(t ^ (t >>> 7), 61 | t);
+				return ((t ^ (t >>> 14)) >>> 0) / 4294967296;
+			};
+		}
+		function hex6(next){
+			var h = "";
+			for(var i=0;i<6;i++){
+				h += "0123456789abcdef".charAt((next()*16)|0);
+			}
+			return h;
+		}
+		var params = new URLSearchParams(location.search);
+		var seed = params.get("seed");
+		if(!seed){
+			if(window.crypto && crypto.getRandomValues){
+				var u32 = new Uint32Array(1);
+				crypto.getRandomValues(u32);
+				seed = String(u32[0] >>> 0);
+			}else{
+				seed = String(Date.now() >>> 0);
+			}
+		}
+		var rng = mulberry32(parseInt(seed,10) >>> 0);
+
+		// --- Fetch latest commit short sha for version ---
+		function setVersionUI(){
+			var vcore = document.getElementById("ver_core");
+			var vl = document.getElementById("ver_left");
+			var vr = document.getElementById("ver_right");
+			if(vcore){ vcore.textContent = "MMHL v" + version; }
+			if(vl){ vl.textContent = short_sha.slice(0,3) || "ver"; }
+			if(vr){ vr.textContent = short_sha.slice(-3) || "dev"; }
+			try{
+				var q = new URLSearchParams(location.search);
+				q.set("seed", seed);
+				q.set("v", version);
+				history.replaceState(null, "", location.pathname + "?" + q.toString());
+			}catch(_){}
+		}
+		function fetchLatestSha(){
+			var api = "https://api.github.com/repos/reedlai/mmhl/commits?per_page=1";
+			return fetch(api, {headers: {"Accept":"application/vnd.github+json"}})
+				.then(function(r){ if(!r.ok){ throw new Error(String(r.status)); } return r.json(); })
+				.then(function(arr){
+					if(arr && arr.length){
+						short_sha = String(arr[0].sha || "").slice(0,7);
+						version = BASE_VERSION + "." + (short_sha || "dev");
+					}
+				})
+				.catch(function(){ /* keep dev */ })
+				.finally(setVersionUI);
+		}
+
+		// --- Renderers (all derive from LICENSE_DATA) ---
+		function renderColloquial(){
+			var host = document.getElementById("colloquial_body");
+			if(!host) return;
+			// join with <br/> inside XHTML
+			host.innerHTML = LICENSE_DATA.colloquial_lines.map(function(line){
+				return "<p>" + line.replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;") + "</p>";
+			}).join("");
+		}
+		function renderFormal(){
+			var intro = document.getElementById("formal_intro");
+			var cond = document.getElementById("formal_condition");
+			var list = document.getElementById("formal_list");
+			var outro = document.getElementById("formal_outro");
+			if(intro){ intro.textContent = LICENSE_DATA.formal_intro; }
+			if(cond){ cond.textContent = LICENSE_DATA.formal_condition; }
+			if(list){
+				list.innerHTML = "";
+				for(var i=0;i<LICENSE_DATA.formal_items.length;i++){
+					var li = document.createElement("li");
+					li.textContent = LICENSE_DATA.formal_items[i];
+					list.appendChild(li);
+				}
+			}
+			if(outro){ outro.textContent = LICENSE_DATA.formal_outro + " 😉"; }
+		}
+
+		// --- Builders for copy/download (single source) ---
+		function getLicenseHeader(){
+			return "MMHL version " + version;
+		}
+		function getLicenseText(){
+			var parts = [];
+			parts.push(getLicenseHeader(), "");
+			parts.push(LICENSE_DATA.title, "");
+			parts.push("Colloquial:");
+			parts = parts.concat(LICENSE_DATA.colloquial_lines, "");
+			parts.push("Formalized:");
+			parts.push(LICENSE_DATA.formal_intro);
+			parts.push(LICENSE_DATA.formal_condition);
+			for(var i=0;i<LICENSE_DATA.formal_items.length;i++){
+				parts.push(String(i+1) + ") " + LICENSE_DATA.formal_items[i]);
+			}
+			parts.push("", LICENSE_DATA.formal_outro, LICENSE_DATA.slogan);
+			return parts.join("\n");
+		}
+		function getLicenseMarkdown(){
+			var lines = [];
+			lines.push("### " + LICENSE_DATA.title + " — v" + version, "");
+			lines.push("> " + LICENSE_DATA.colloquial_lines[0]);
+			if(LICENSE_DATA.colloquial_lines[1]) lines.push("> " + LICENSE_DATA.colloquial_lines[1]);
+			lines.push("", "Formalized", "");
+			lines.push(LICENSE_DATA.formal_intro, "");
+			lines.push("- " + LICENSE_DATA.formal_condition);
+			for(var i=0;i<LICENSE_DATA.formal_items.length;i++){
+				lines.push("  - " + LICENSE_DATA.formal_items[i]);
+			}
+			lines.push("", "_" + LICENSE_DATA.slogan + "_");
+			return lines.join("\n");
+		}
+		function getSpdxHeader(style){
+			var line = "SPDX-License-Identifier: LicenseRef-MMHL-" + BASE_VERSION;
+			if(style === "hash"){ return "# " + line; }
+			if(style === "html"){ return "<!-- " + line + " -->"; }
+			return "/* " + line + " */";
+		}
+
+		// --- Clipboard helpers ---
+		function toast(msg){
+			var s = document.getElementById('copied');
+			if(s){ s.textContent = msg; setTimeout(function(){ s.textContent = ""; }, 1500); }
+		}
+		function copyText(txt){
+			if(navigator.clipboard && navigator.clipboard.writeText){
+				navigator.clipboard.writeText(txt).then(function(){ toast("Copied."); });
+				return;
+			}
+			var ta = document.createElement('textarea');
+			ta.value = txt; ta.style.position='fixed'; ta.style.opacity='0';
+			document.body.appendChild(ta); ta.select();
+			try{ document.execCommand('copy'); }catch(_){}
+			document.body.removeChild(ta);
+			toast("Copied.");
+		}
+
+		// --- Stamps shuffle using seeded RNG ---
+		function shuffleStamps(){
+			var next = rng;
+			var stamps = document.getElementsByClassName('stamp');
+			for(var i=0;i<stamps.length;i++){
+				var pre = stamps[i].getElementsByClassName('pre')[0];
+				var post = stamps[i].getElementsByClassName('post')[0];
+				if(pre){ pre.textContent = hex6(next); }
+				if(post){ post.textContent = hex6(next); }
+			}
+		}
+
+		// --- Digest of the generated LICENSE text (sha256 short) ---
+		function toHex(buf){
+			var arr = Array.from(new Uint8Array(buf));
+			return arr.map(function(b){ return b.toString(16).padStart(2,"0"); }).join("");
+		}
+		async function renderDigest(){
+			if(!(window.crypto && crypto.subtle)) return;
+			var txt = getLicenseText();
+			var buf = await crypto.subtle.digest("SHA-256", new TextEncoder().encode(txt));
+			var hex = toHex(buf);
+			var slot = document.getElementById("digest_core");
+			if(slot){ slot.textContent = "sha256:" + hex.slice(0,12); }
+			try{ console.log("MMHL sha256(full):", hex); }catch(_){}
+		}
+
+		// --- Actions ---
+		function makePermalink(){
+			var q = new URLSearchParams(location.search);
+			q.set("seed", seed);
+			q.set("v", version);
+			var url = location.pathname + "?" + q.toString();
+			try{ history.replaceState(null,"",url); }catch(_){}
+			copyText(location.origin + url);
+			toast("Permalink ready.");
+		}
+		function sharePage(){
+			var q = new URLSearchParams(location.search);
+			q.set("seed", seed);
+			q.set("v", version);
+			var url = location.origin + location.pathname + "?" + q.toString();
+			if(navigator.share){
+				navigator.share({title:"MMHL", text:"Make Me Happy License", url:url}).catch(function(){});
+			}else{
+				copyText(url);
+			}
+			toast("Link ready.");
+		}
+		function downloadLicense(){
+			var blob = new Blob([getLicenseText()], {type:"text/plain;charset=utf-8"});
+			var a = document.createElement('a');
+			a.download = "LICENSE.txt";
+			a.href = URL.createObjectURL(blob);
+			a.rel = "noopener";
+			document.body.appendChild(a);
+			a.click();
+			setTimeout(function(){
+				URL.revokeObjectURL(a.href);
+				document.body.removeChild(a);
+			}, 500);
+		}
+
+		// --- Keyboard shortcuts (S,C,M,X,P,D) ---
+		document.addEventListener("keydown", function(ev){
+			if(ev.target && (/input|textarea/i).test(ev.target.tagName)) return;
+			var k = ev.key;
+			if(k === "s" || k === "S") shuffleStamps();
+			if(k === "c" || k === "C") copyText(getLicenseText());
+			if(k === "m" || k === "M") copyText(getLicenseMarkdown());
+			if(k === "x" || k === "X") copyText(getSpdxHeader("slash"));
+			if(k === "p" || k === "P") makePermalink();
+			if(k === "d" || k === "D") downloadLicense();
+		});
+
+		// --- Wire up buttons ---
+		var sh = document.getElementById('shuffle'); if(sh){ sh.onclick = function(){ shuffleStamps(); }; }
+		var cp1 = document.getElementById('copy_plain'); if(cp1){ cp1.onclick = function(){ copyText(getLicenseText()); }; }
+		var cp2 = document.getElementById('copy_md'); if(cp2){ cp2.onclick = function(){ copyText(getLicenseMarkdown()); }; }
+		var cp3 = document.getElementById('copy_spdx'); if(cp3){ cp3.onclick = function(){ copyText(getSpdxHeader("slash")); }; }
+		var dl  = document.getElementById('download'); if(dl){ dl.onclick = function(){ downloadLicense(); }; }
+		var pl  = document.getElementById('permalink'); if(pl){ pl.onclick = function(){ makePermalink(); }; }
+		var shb = document.getElementById('share'); if(shb){ shb.onclick = function(){ sharePage(); }; }
+
+		// --- Init: render UI from single source, then stamps, version, digest ---
+		renderColloquial();
+		renderFormal();
+		shuffleStamps();
+		fetchLatestSha().then(renderDigest);
+	})();
+	//]]>
+	</script>
 </body>
 </html>
 
