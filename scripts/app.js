@@ -143,6 +143,19 @@
 		toast("Copied.");
 	}
 
+	// ===== Copy icon (black/white) helper =====
+	var _copy_icon_mq = (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)')) || null;
+	function getCopyIconSrc(){
+		return (_copy_icon_mq && _copy_icon_mq.matches)
+			? './assets/icons/copy_white.svg'
+			: './assets/icons/copy_black.svg';
+	}
+	function updateCopyIcons(){
+		var next = getCopyIconSrc();
+		var list = document.querySelectorAll('button.copy-stamp .copy-icon');
+		for(var k=0;k<list.length;k++){ list[k].src = next; }
+	}
+
 	// Stamp copy buttons
 	function addStampCopyButtons(){
 		var stamps = document.getElementsByClassName("stamp");
@@ -156,27 +169,25 @@
 			btn.setAttribute("class","copy-stamp");
 			btn.setAttribute("aria-label","Copy this logo");
 			btn.setAttribute("title","Copy");
-			// btn.textContent = "📋";
 
-			// Replace emoji with an image icon
+			// Replace emoji with an image icon (auto dark/light)
 			var img = document.createElement('img');
 			img.className = 'copy-icon';
-			img.src = './assets/icons/copy.svg';
 			img.alt = 'Copy';
 			img.width = 14; img.height = 14;
+			img.src = getCopyIconSrc();
 			btn.appendChild(img);
 
 			btn.onclick = (function(target){
 				return function(){
-					var pre	= (target.getElementsByClassName("pre")[0]	|| {textContent:""}).textContent;
+					var pre = (target.getElementsByClassName("pre")[0]  || {textContent:""}).textContent;
 					var core = (target.getElementsByClassName("core")[0] || {textContent:""}).textContent;
 					var post = (target.getElementsByClassName("post")[0] || {textContent:""}).textContent;
 					var parts = [];
 					if(pre){ parts.push(pre); }
 					if(core){ parts.push(core); }
 					if(post){ parts.push(post); }
-					var text = parts.join(" ");
-					copyText(text);
+					copyText(parts.join(" "));
 				};
 			})(el);
 			if(el.parentNode){ el.parentNode.insertBefore(btn, el.nextSibling); }
@@ -254,6 +265,16 @@
 		addStampCopyButtons();
 		shuffleStamps();
 		fetchLatestSha().then(renderDigest);
+
+		// keep icons in sync with system theme
+		if(_copy_icon_mq){
+			if(_copy_icon_mq.addEventListener){
+				_copy_icon_mq.addEventListener('change', updateCopyIcons);
+			}else if(_copy_icon_mq.addListener){
+				_copy_icon_mq.addListener(updateCopyIcons);
+			}
+			updateCopyIcons();
+		}
 	}
 
 	loadData().then(init);
