@@ -72,6 +72,9 @@
 		var cond = document.getElementById("formal_condition");
 		var list = document.getElementById("formal_list");
 		var outro = document.getElementById("formal_outro");
+		var final_clause = document.getElementById("formal_final_clause");
+		var disclaimer = document.getElementById("formal_disclaimer");	
+		var slogan = document.getElementById("slogan");
 		if(intro){ intro.textContent = LICENSE_DATA.formal_intro; }
 		if(cond){ cond.textContent = LICENSE_DATA.formal_condition; }
 		if(list){
@@ -83,41 +86,105 @@
 			}
 		}
 		if(outro){ outro.textContent = LICENSE_DATA.formal_outro + " 😉"; }
+		if(final_clause){
+			final_clause.textContent = LICENSE_DATA.final_clause ? LICENSE_DATA.final_clause : "";
+		}
+		if(disclaimer){
+			disclaimer.textContent = LICENSE_DATA.disclaimer ? LICENSE_DATA.disclaimer : "";
+		}
+		if(slogan){ slogan.textContent = LICENSE_DATA.slogan ? LICENSE_DATA.slogan : ""; }
+
 	}
 
 	// Builders
 	function getLicenseHeader(){ return "MMHL version " + version; }
-	function getLicenseText(){
-		if(!LICENSE_DATA) return "";
+
+	function getLicenseText() {
+		if (!LICENSE_DATA) return "" ;
 		var parts = [];
-		parts.push(getLicenseHeader(), "");
-		parts.push(LICENSE_DATA.title, "");
+
+		parts.push(getLicenseHeader());
+		parts.push("");
+
+		parts.push(LICENSE_DATA.title);
+		parts.push("");
+
 		parts.push("Colloquial:");
-		parts = parts.concat(LICENSE_DATA.colloquial_lines, "");
+		parts = parts.concat(LICENSE_DATA.colloquial_lines);
+		parts.push("");
+
 		parts.push("Formalized:");
 		parts.push(LICENSE_DATA.formal_intro);
 		parts.push(LICENSE_DATA.formal_condition);
-		for(var i=0;i<LICENSE_DATA.formal_items.length;i++){
+
+		for (var i=0;i<LICENSE_DATA.formal_items.length;i++) {
 			parts.push(String(i+1) + ") " + LICENSE_DATA.formal_items[i]);
 		}
-		parts.push("", LICENSE_DATA.formal_outro, LICENSE_DATA.slogan);
+
+		parts.push("");
+		parts.push(LICENSE_DATA.formal_outro);
+
+		if (LICENSE_DATA.final_clause) {
+			parts.push("");
+			parts.push(LICENSE_DATA.final_clause);
+		}
+
+		if (LICENSE_DATA.disclaimer) {
+			parts.push("");
+			parts.push(LICENSE_DATA.disclaimer);
+		}
+
+		if (LICENSE_DATA.slogan) {
+			parts.push("");
+			parts.push(LICENSE_DATA.slogan);
+		}
+
 		return parts.join("\n");
 	}
+
 	function getLicenseMarkdown(){
 		if(!LICENSE_DATA) return "";
 		var lines = [];
-		lines.push("### " + LICENSE_DATA.title + " — v" + version, "");
+
+		lines.push("### " + LICENSE_DATA.title + " — v" + version);
+		lines.push("");
+
 		lines.push("> " + LICENSE_DATA.colloquial_lines[0]);
-		if(LICENSE_DATA.colloquial_lines[1]) lines.push("> " + LICENSE_DATA.colloquial_lines[1]);
-		lines.push("", "Formalized", "");
-		lines.push(LICENSE_DATA.formal_intro, "");
+		if(LICENSE_DATA.colloquial_lines[1]){ lines.push("> " + LICENSE_DATA.colloquial_lines[1]); }
+
+		lines.push("");
+		lines.push("Formalized");
+		lines.push("");
+
+		lines.push(LICENSE_DATA.formal_intro);
+		lines.push("");
+
 		lines.push("- " + LICENSE_DATA.formal_condition);
 		for(var i=0;i<LICENSE_DATA.formal_items.length;i++){
-			lines.push("	- " + LICENSE_DATA.formal_items[i]);
+			lines.push("  - " + LICENSE_DATA.formal_items[i]);
 		}
-		lines.push("", "_" + LICENSE_DATA.slogan + "_");
+
+		lines.push("");
+		lines.push(LICENSE_DATA.formal_outro);
+
+		if(LICENSE_DATA.final_clause){
+			lines.push("");
+			lines.push(LICENSE_DATA.final_clause);
+		}
+
+		if(LICENSE_DATA.disclaimer){
+			lines.push("");
+			lines.push(LICENSE_DATA.disclaimer);
+		}
+
+		if(LICENSE_DATA.slogan){
+			lines.push("");
+			lines.push("_" + LICENSE_DATA.slogan + "_");
+		}
+
 		return lines.join("\n");
 	}
+
 	function getSpdxHeader(style){
 		var line = "SPDX-License-Identifier: LicenseRef-MMHL-" + BASE_VERSION;
 		if(style === "hash"){ return "# " + line; }

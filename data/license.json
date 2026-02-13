@@ -1,18 +1,20 @@
 {
-	"title": "Make Me Happy License (MMHL)",
-	"colloquial_lines": [
-		"Use, copy, or adapt anything here once you make me happy.",
-		"Try flattering me, buttering me up, bribing me, or sleeping with me. 😉"
-	],
-	"formal_intro": "Permission is hereby granted to any person obtaining a copy of this repository to use, copy, or adapt the materials, provided that the following condition is met:",
-	"formal_condition": "The licensee must first make the licensor happy. Acceptable methods include, but are not limited to:",
-	"formal_items": [
-		"Offering sincere praise and flattery.",
-		"Excessive buttering-up in both public and private contexts.",
-		"Delivering bribes of acceptable monetary or non-monetary value.",
-		"Engaging in intimate relations with the licensor, at the licensor’s sole discretion."
-	],
-	"formal_outro": "Failure to comply will result in immediate revocation of all rights, plus possible public ridicule.",
-	"slogan": "No happiness, no license."
+    "title": "Make Me Happy License (MMHL)",
+    "colloquial_lines": [
+        "Use, copy, or adapt anything here once you make me happy.",
+        "Try flattering me, buttering me up, bribing me, or sleeping with me. 😉"
+    ],
+    "formal_intro": "Permission is hereby granted to any person obtaining a copy of this repository to use, copy, or adapt the materials, provided that the following condition is met:",
+    "formal_condition": "The licensee must first make the licensor happy. Acceptable methods include, but are not limited to:",
+    "formal_items": [
+        "Offering sincere praise and flattery.",
+        "Excessive buttering-up in both public and private contexts.",
+        "Delivering bribes of acceptable monetary or non-monetary value.",
+        "Engaging in intimate relations with the licensor, at the licensor’s sole discretion."
+    ],
+    "formal_outro": "Failure to comply will result in immediate revocation of all rights, plus possible public ridicule.",
+    "final_clause": "Alternatively, you may ignore all of the above. Your actions are not required for my happiness.",
+    "disclaimer": "This thing is provided “as is”. The universe does not guarantee outcomes, and neither do I.",
+    "slogan": "No happiness, no license."
 }
 
