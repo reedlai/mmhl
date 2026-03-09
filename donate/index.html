@@ -4,6 +4,7 @@
 	<meta charset="UTF-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 	<title>Support MMHL — Make Me Happy License</title>
+	<script src="../scripts/qrcode.min.js"></script>
 	<style>
 		:root{
 			--bg: #0f0f10;
@@ -237,11 +238,7 @@
 				<div class="address_box" id="paypal_address">reedlai@hotmail.com</div>
 
 				<div class="qr_wrap">
-					<img
-						class="qr_img"
-						alt="PayPal QR code"
-						src="https://api.qrserver.com/v1/create-qr-code/?size=192x192&data=https%3A%2F%2Fwww.paypal.com%2Fcgi-bin%2Fwebscr%3Fcmd%3D_xclick%26business%3Dreedlai%40hotmail.com%26item_name%3DMake%2520Me%2520Happy%2520License%2520Donation%26currency_code%3DUSD"
-					/>
+					<div id="qr_paypal"></div>
 					<p class="qr_caption">Scan to open the PayPal donation page.</p>
 				</div>
 
@@ -268,11 +265,7 @@
 				<div class="address_box" id="btc_address">bc1qdm3yc6m220akdfjqllkswssq9wvpfya5afhay7</div>
 
 				<div class="qr_wrap">
-					<img
-						class="qr_img"
-						alt="Bitcoin QR code"
-						src="https://api.qrserver.com/v1/create-qr-code/?size=192x192&data=bitcoin%3Abc1qdm3yc6m220akdfjqllkswssq9wvpfya5afhay7"
-					/>
+					<div id="qr_btc"></div>
 					<p class="qr_caption">Scan with a BTC wallet app.</p>
 				</div>
 
@@ -293,11 +286,7 @@
 				<div class="address_box" id="doge_address">DCaoeqdwCuj15k2H24SX8JUQiYUjXYM4XW</div>
 
 				<div class="qr_wrap">
-					<img
-						class="qr_img"
-						alt="Dogecoin QR code"
-						src="https://api.qrserver.com/v1/create-qr-code/?size=192x192&data=dogecoin%3ADCaoeqdwCuj15k2H24SX8JUQiYUjXYM4XW"
-					/>
+					<div id="qr_doge"></div>
 					<p class="qr_caption">Scan with a DOGE wallet app.</p>
 				</div>
 
@@ -318,11 +307,7 @@
 				<div class="address_box" id="usdt_trc20_address">TJ8YzbDB2BYimgQJQ8ywFvE7787YMfo2gz</div>
 
 				<div class="qr_wrap">
-					<img
-						class="qr_img"
-						alt="USDT on Tron QR code"
-						src="https://api.qrserver.com/v1/create-qr-code/?size=192x192&data=TJ8YzbDB2BYimgQJQ8ywFvE7787YMfo2gz"
-					/>
+					<div id="qr_usdt"></div>
 					<p class="qr_caption">QR encodes the Tron address only. Send USDT on TRC20 only.</p>
 				</div>
 
@@ -404,6 +389,43 @@
 					});
 			});
 		})();
+	</script>
+	<script> <!-- QR codes -->
+		new QRCode(document.getElementById("qr_paypal"), {
+			text: "https://www.paypal.com/cgi-bin/webscr?cmd=_xclick&business=reedlai@hotmail.com&item_name=Make%20Me%20Happy%20License%20Donation&currency_code=USD",
+			width: 192,
+			height: 192,
+			colorDark: "#e8e8ea",
+			colorLight: "#111216",
+			correctLevel: QRCode.CorrectLevel.M
+		});
+
+		new QRCode(document.getElementById("qr_btc"), {
+			text: "bitcoin:bc1qdm3yc6m220akdfjqllkswssq9wvpfya5afhay7",
+			width: 192,
+			height: 192,
+			colorDark: "#e8e8ea",
+			colorLight: "#111216",
+			correctLevel: QRCode.CorrectLevel.M
+		});
+
+		new QRCode(document.getElementById("qr_doge"), {
+			text: "dogecoin:DCaoeqdwCuj15k2H24SX8JUQiYUjXYM4XW",
+			width: 192,
+			height: 192,
+			colorDark: "#e8e8ea",
+			colorLight: "#111216",
+			correctLevel: QRCode.CorrectLevel.M
+		});
+
+		new QRCode(document.getElementById("qr_usdt"), {
+			text: "TJ8YzbDB2BYimgQJQ8ywFvE7787YMfo2gz",
+			width: 192,
+			height: 192,
+			colorDark: "#e8e8ea",
+			colorLight: "#111216",
+			correctLevel: QRCode.CorrectLevel.M
+		});
 	</script>
 </body>
 </html>
