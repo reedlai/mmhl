@@ -6,7 +6,7 @@
 	<title>Support MMHL — Make Me Happy License</title>
 	<script src="../scripts/qrcode.min.js"></script>
 	<style>
-		:root{
+		:root {
 			--bg: #0f0f10;
 			--panel: #17181b;
 			--panel_2: #1f2126;
@@ -17,12 +17,12 @@
 			--ok: #7bd389;
 		}
 
-		*{
+		* {
 			box-sizing: border-box;
 		}
 
 		html,
-		body{
+		body {
 			margin: 0;
 			padding: 0;
 			background: var(--bg);
@@ -31,29 +31,29 @@
 			line-height: 1.6;
 		}
 
-		a{
+		a {
 			color: var(--accent);
 			text-decoration: none;
 		}
 
-		a:hover{
+		a:hover {
 			text-decoration: underline;
 		}
 
-		.page{
+		.page {
 			width: min(1080px, calc(100% - 32px));
 			margin: 0 auto;
 			padding: 32px 0 64px;
 		}
 
-		.hero{
+		.hero {
 			border: 1px dashed var(--line);
 			background: linear-gradient(180deg, var(--panel), var(--panel_2));
 			padding: 28px 24px;
 			margin-bottom: 24px;
 		}
 
-		.kicker{
+		.kicker {
 			margin: 0 0 8px;
 			font-size: 12px;
 			letter-spacing: 0.18em;
@@ -64,38 +64,38 @@
 		h1,
 		h2,
 		h3,
-		p{
+		p {
 			margin-top: 0;
 		}
 
-		h1{
+		h1 {
 			margin-bottom: 12px;
 			font-size: clamp(28px, 4vw, 42px);
 			line-height: 1.15;
 		}
 
-		.hero p:last-child{
+		.hero p:last-child {
 			margin-bottom: 0;
 		}
 
-		.grid{
+		.grid {
 			display: grid;
 			grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
 			gap: 16px;
 		}
 
-		.card{
+		.card {
 			border: 1px dashed var(--line);
 			background: var(--panel);
 			padding: 18px 16px 16px;
 		}
 
-		.card h2{
+		.card h2 {
 			margin-bottom: 8px;
 			font-size: 20px;
 		}
 
-		.chain{
+		.chain {
 			margin-bottom: 12px;
 			font-size: 13px;
 			color: var(--dim);
@@ -103,7 +103,7 @@
 			text-transform: uppercase;
 		}
 
-		.label{
+		.label {
 			margin: 0 0 6px;
 			font-size: 12px;
 			color: var(--dim);
@@ -111,7 +111,7 @@
 			text-transform: uppercase;
 		}
 
-		.address_box{
+		.address_box {
 			border: 1px solid var(--line);
 			background: #111216;
 			padding: 12px;
@@ -123,15 +123,16 @@
 			line-height: 1.5;
 		}
 
-		.qr_wrap{
+		.qr_wrap {
 			margin: 0 0 12px;
 			padding: 12px;
 			border: 1px solid var(--line);
 			background: #111216;
 			text-align: center;
 		}
+		.qr_wrap > div { display: inline-block; }
 
-		.qr_img{
+		.qr_img {
 			display: block;
 			width: 192px;
 			height: 192px;
@@ -141,13 +142,13 @@
 			padding: 8px;
 		}
 
-		.qr_caption{
+		.qr_caption {
 			margin: 0;
 			font-size: 12px;
 			color: var(--dim);
 		}
 
-		.actions{
+		.actions {
 			display: flex;
 			flex-wrap: wrap;
 			gap: 8px;
@@ -155,7 +156,7 @@
 		}
 
 		button,
-		.action_link{
+		.action_link {
 			display: inline-block;
 			appearance: none;
 			border: 1px solid var(--line);
@@ -168,19 +169,19 @@
 		}
 
 		button:hover,
-		.action_link:hover{
+		.action_link:hover {
 			border-color: var(--accent);
 			color: var(--accent);
 			text-decoration: none;
 		}
 
-		.note{
+		.note {
 			margin: 0;
 			font-size: 13px;
 			color: var(--dim);
 		}
 
-		.footer{
+		.footer {
 			margin-top: 24px;
 			border-top: 1px dashed var(--line);
 			padding-top: 18px;
@@ -188,26 +189,26 @@
 			font-size: 14px;
 		}
 
-		.status{
+		.status {
 			display: inline-block;
 			min-height: 1.2em;
 			font-size: 13px;
 			color: var(--ok);
 		}
 
-		@media (max-width: 640px){
-			.page{
+		@media (max-width: 640px) {
+			.page {
 				width: min(100%, calc(100% - 20px));
 				padding-top: 20px;
 			}
 
 			.hero,
-			.card{
+			.card {
 				padding-left: 14px;
 				padding-right: 14px;
 			}
 
-			.qr_img{
+			.qr_img {
 				width: 168px;
 				height: 168px;
 			}
@@ -334,22 +335,22 @@
 	</div>
 
 	<script>
-		(function(){
+		(function() {
 			"use strict";
 
-			function set_status(id, text){
+			function set_status(id, text) {
 				var el = document.getElementById(id + "_status");
 				if(!el) return;
 				el.textContent = text;
-				window.setTimeout(function(){
-					if(el.textContent === text){
+				window.setTimeout(function() {
+					if(el.textContent === text) {
 						el.textContent = "";
 					}
 				}, 1800);
 			}
 
-			async function copy_text(text){
-				if(navigator.clipboard && window.isSecureContext){
+			async function copy_text(text) {
+				if(navigator.clipboard && window.isSecureContext) {
 					await navigator.clipboard.writeText(text);
 					return true;
 				}
@@ -362,17 +363,17 @@
 				document.body.appendChild(textarea);
 				textarea.select();
 
-				try{
+				try {
 					document.execCommand("copy");
 					document.body.removeChild(textarea);
 					return true;
-				}catch(err){
+				}catch(err) {
 					document.body.removeChild(textarea);
 					throw err;
 				}
 			}
 
-			document.addEventListener("click", function(event){
+			document.addEventListener("click", function(event) {
 				var button = event.target.closest("[data-copy]");
 				if(!button) return;
 
@@ -381,10 +382,10 @@
 				if(!box) return;
 
 				copy_text(box.textContent.trim())
-					.then(function(){
+					.then(function() {
 						set_status(target_id, "Copied.");
 					})
-					.catch(function(){
+					.catch(function() {
 						set_status(target_id, "Copy failed.");
 					});
 			});
