@@ -40,7 +40,7 @@
 		}
 
 		.page{
-			width: min(960px, calc(100% - 32px));
+			width: min(1080px, calc(100% - 32px));
 			margin: 0 auto;
 			padding: 32px 0 64px;
 		}
@@ -79,7 +79,7 @@
 
 		.grid{
 			display: grid;
-			grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+			grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
 			gap: 16px;
 		}
 
@@ -111,7 +111,6 @@
 		}
 
 		.address_box{
-			position: relative;
 			border: 1px solid var(--line);
 			background: #111216;
 			padding: 12px;
@@ -123,6 +122,30 @@
 			line-height: 1.5;
 		}
 
+		.qr_wrap{
+			margin: 0 0 12px;
+			padding: 12px;
+			border: 1px solid var(--line);
+			background: #111216;
+			text-align: center;
+		}
+
+		.qr_img{
+			display: block;
+			width: 192px;
+			height: 192px;
+			max-width: 100%;
+			margin: 0 auto 8px;
+			background: #ffffff;
+			padding: 8px;
+		}
+
+		.qr_caption{
+			margin: 0;
+			font-size: 12px;
+			color: var(--dim);
+		}
+
 		.actions{
 			display: flex;
 			flex-wrap: wrap;
@@ -130,7 +153,9 @@
 			margin-bottom: 10px;
 		}
 
-		button{
+		button,
+		.action_link{
+			display: inline-block;
 			appearance: none;
 			border: 1px solid var(--line);
 			background: #24262d;
@@ -138,11 +163,14 @@
 			padding: 8px 12px;
 			font: inherit;
 			cursor: pointer;
+			text-decoration: none;
 		}
 
-		button:hover{
+		button:hover,
+		.action_link:hover{
 			border-color: var(--accent);
 			color: var(--accent);
+			text-decoration: none;
 		}
 
 		.note{
@@ -177,6 +205,11 @@
 				padding-left: 14px;
 				padding-right: 14px;
 			}
+
+			.qr_img{
+				width: 168px;
+				height: 168px;
+			}
 		}
 	</style>
 </head>
@@ -203,15 +236,25 @@
 				<p class="label">PayPal address</p>
 				<div class="address_box" id="paypal_address">reedlai@hotmail.com</div>
 
-
-
+				<div class="qr_wrap">
+					<img
+						class="qr_img"
+						alt="PayPal QR code"
+						src="https://api.qrserver.com/v1/create-qr-code/?size=192x192&data=https%3A%2F%2Fwww.paypal.com%2Fcgi-bin%2Fwebscr%3Fcmd%3D_xclick%26business%3Dreedlai%40hotmail.com%26item_name%3DMake%2520Me%2520Happy%2520License%2520Donation%26currency_code%3DUSD"
+					/>
+					<p class="qr_caption">Scan to open the PayPal donation page.</p>
+				</div>
 
 				<div class="actions">
-					<button type="button" data-copy="paypal_address">Copy</button>
-					<a href="https://www.paypal.com/cgi-bin/webscr?cmd=_xclick&business=reedlai@hotmail.com&item_name=Make%20Me%20Happy%20License%20Donation&currency_code=USD" target="_blank">
-						<button type="button">Pay with PayPal</button>
-					</a>
+					<button type="button" data-copy="paypal_address">Copy address</button>
+					<a
+						class="action_link"
+						href="https://www.paypal.com/cgi-bin/webscr?cmd=_xclick&business=reedlai@hotmail.com&item_name=Make%20Me%20Happy%20License%20Donation&currency_code=USD"
+						target="_blank"
+						rel="noopener noreferrer"
+					>Pay with PayPal</a>
 				</div>
+
 				<p class="note">
 					Use this address in PayPal for direct support.
 				</p>
@@ -223,9 +266,20 @@
 				<p class="chain">BTC @ Bitcoin chain</p>
 				<p class="label">Wallet address</p>
 				<div class="address_box" id="btc_address">bc1qdm3yc6m220akdfjqllkswssq9wvpfya5afhay7</div>
-				<div class="actions">
-					<button type="button" data-copy="btc_address">Copy</button>
+
+				<div class="qr_wrap">
+					<img
+						class="qr_img"
+						alt="Bitcoin QR code"
+						src="https://api.qrserver.com/v1/create-qr-code/?size=192x192&data=bitcoin%3Abc1qdm3yc6m220akdfjqllkswssq9wvpfya5afhay7"
+					/>
+					<p class="qr_caption">Scan with a BTC wallet app.</p>
 				</div>
+
+				<div class="actions">
+					<button type="button" data-copy="btc_address">Copy address</button>
+				</div>
+
 				<p class="note">
 					Send BTC only on the native Bitcoin network.
 				</p>
@@ -237,9 +291,20 @@
 				<p class="chain">DOGE @ Dogecoin chain</p>
 				<p class="label">Wallet address</p>
 				<div class="address_box" id="doge_address">DCaoeqdwCuj15k2H24SX8JUQiYUjXYM4XW</div>
-				<div class="actions">
-					<button type="button" data-copy="doge_address">Copy</button>
+
+				<div class="qr_wrap">
+					<img
+						class="qr_img"
+						alt="Dogecoin QR code"
+						src="https://api.qrserver.com/v1/create-qr-code/?size=192x192&data=dogecoin%3ADCaoeqdwCuj15k2H24SX8JUQiYUjXYM4XW"
+					/>
+					<p class="qr_caption">Scan with a DOGE wallet app.</p>
 				</div>
+
+				<div class="actions">
+					<button type="button" data-copy="doge_address">Copy address</button>
+				</div>
+
 				<p class="note">
 					Send DOGE only on the Dogecoin network.
 				</p>
@@ -251,9 +316,20 @@
 				<p class="chain">USDT @ Tron (TRC20) chain</p>
 				<p class="label">Wallet address</p>
 				<div class="address_box" id="usdt_trc20_address">TJ8YzbDB2BYimgQJQ8ywFvE7787YMfo2gz</div>
-				<div class="actions">
-					<button type="button" data-copy="usdt_trc20_address">Copy</button>
+
+				<div class="qr_wrap">
+					<img
+						class="qr_img"
+						alt="USDT on Tron QR code"
+						src="https://api.qrserver.com/v1/create-qr-code/?size=192x192&data=TJ8YzbDB2BYimgQJQ8ywFvE7787YMfo2gz"
+					/>
+					<p class="qr_caption">QR encodes the Tron address only. Send USDT on TRC20 only.</p>
 				</div>
+
+				<div class="actions">
+					<button type="button" data-copy="usdt_trc20_address">Copy address</button>
+				</div>
+
 				<p class="note">
 					Send USDT only on Tron TRC20. Do not use ERC20, BEP20, or other networks.
 				</p>
@@ -265,6 +341,9 @@
 			<p>
 				MMHL is an idea, a joke, a statement, and a little act of license theater.
 				Thank you for supporting its continued existence.
+			</p>
+			<p>
+				QR images in this version are generated by an external QR service.
 			</p>
 		</footer>
 	</div>
