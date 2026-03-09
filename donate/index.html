@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<title>MMHL Donation</title>
+	<style>
+		:root{
+			--bg: #0f0f10;
+			--panel: #17181b;
+			--panel_2: #1f2126;
+			--line: #3a3d45;
+			--text: #e8e8ea;
+			--dim: #a8adb7;
+			--accent: #f4d35e;
+			--ok: #7bd389;
+		}
+
+		*{
+			box-sizing: border-box;
+		}
+
+		html,
+		body{
+			margin: 0;
+			padding: 0;
+			background: var(--bg);
+			color: var(--text);
+			font-family: Georgia, "Times New Roman", serif;
+			line-height: 1.6;
+		}
+
+		a{
+			color: var(--accent);
+			text-decoration: none;
+		}
+
+		a:hover{
+			text-decoration: underline;
+		}
+
+		.page{
+			width: min(960px, calc(100% - 32px));
+			margin: 0 auto;
+			padding: 32px 0 64px;
+		}
+
+		.hero{
+			border: 1px dashed var(--line);
+			background: linear-gradient(180deg, var(--panel), var(--panel_2));
+			padding: 28px 24px;
+			margin-bottom: 24px;
+		}
+
+		.kicker{
+			margin: 0 0 8px;
+			font-size: 12px;
+			letter-spacing: 0.18em;
+			text-transform: uppercase;
+			color: var(--accent);
+		}
+
+		h1,
+		h2,
+		h3,
+		p{
+			margin-top: 0;
+		}
+
+		h1{
+			margin-bottom: 12px;
+			font-size: clamp(28px, 4vw, 42px);
+			line-height: 1.15;
+		}
+
+		.hero p:last-child{
+			margin-bottom: 0;
+		}
+
+		.grid{
+			display: grid;
+			grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+			gap: 16px;
+		}
+
+		.card{
+			border: 1px dashed var(--line);
+			background: var(--panel);
+			padding: 18px 16px 16px;
+		}
+
+		.card h2{
+			margin-bottom: 8px;
+			font-size: 20px;
+		}
+
+		.chain{
+			margin-bottom: 12px;
+			font-size: 13px;
+			color: var(--dim);
+			letter-spacing: 0.04em;
+			text-transform: uppercase;
+		}
+
+		.label{
+			margin: 0 0 6px;
+			font-size: 12px;
+			color: var(--dim);
+			letter-spacing: 0.08em;
+			text-transform: uppercase;
+		}
+
+		.address_box{
+			position: relative;
+			border: 1px solid var(--line);
+			background: #111216;
+			padding: 12px;
+			margin-bottom: 12px;
+			overflow-wrap: anywhere;
+			word-break: break-word;
+			font-family: Consolas, "Courier New", monospace;
+			font-size: 14px;
+			line-height: 1.5;
+		}
+
+		.actions{
+			display: flex;
+			flex-wrap: wrap;
+			gap: 8px;
+			margin-bottom: 10px;
+		}
+
+		button{
+			appearance: none;
+			border: 1px solid var(--line);
+			background: #24262d;
+			color: var(--text);
+			padding: 8px 12px;
+			font: inherit;
+			cursor: pointer;
+		}
+
+		button:hover{
+			border-color: var(--accent);
+			color: var(--accent);
+		}
+
+		.note{
+			margin: 0;
+			font-size: 13px;
+			color: var(--dim);
+		}
+
+		.footer{
+			margin-top: 24px;
+			border-top: 1px dashed var(--line);
+			padding-top: 18px;
+			color: var(--dim);
+			font-size: 14px;
+		}
+
+		.status{
+			display: inline-block;
+			min-height: 1.2em;
+			font-size: 13px;
+			color: var(--ok);
+		}
+
+		@media (max-width: 640px){
+			.page{
+				width: min(100%, calc(100% - 20px));
+				padding-top: 20px;
+			}
+
+			.hero,
+			.card{
+				padding-left: 14px;
+				padding-right: 14px;
+			}
+		}
+	</style>
+</head>
+<body>
+	<div class="page">
+		<header class="hero">
+			<p class="kicker">MMHL</p>
+			<h1>Support the Make Me Happy License</h1>
+			<p>
+				If MMHL amused you, helped you, or made open-source feel slightly more alive,
+				you may support the project here.
+			</p>
+			<p>
+				Choose the payment method you prefer. For crypto, please send only on the exact
+				network listed for each address.
+			</p>
+		</header>
+
+		<main class="grid">
+			<section class="card">
+				<h2>PayPal</h2>
+				<p class="chain">Direct account</p>
+				<p class="label">PayPal address</p>
+				<div class="address_box" id="paypal_address">reedlai@hotmail.com</div>
+				<div class="actions">
+					<button type="button" data-copy="paypal_address">Copy</button>
+				</div>
+				<p class="note">
+					Use this address in PayPal for direct support.
+				</p>
+				<p class="status" id="paypal_address_status"></p>
+			</section>
+
+			<section class="card">
+				<h2>Bitcoin</h2>
+				<p class="chain">BTC @ Bitcoin chain</p>
+				<p class="label">Wallet address</p>
+				<div class="address_box" id="btc_address">bc1qdm3yc6m220akdfjqllkswssq9wvpfya5afhay7</div>
+				<div class="actions">
+					<button type="button" data-copy="btc_address">Copy</button>
+				</div>
+				<p class="note">
+					Send BTC only on the native Bitcoin network.
+				</p>
+				<p class="status" id="btc_address_status"></p>
+			</section>
+
+			<section class="card">
+				<h2>Dogecoin</h2>
+				<p class="chain">DOGE @ Dogecoin chain</p>
+				<p class="label">Wallet address</p>
+				<div class="address_box" id="doge_address">DCaoeqdwCuj15k2H24SX8JUQiYUjXYM4XW</div>
+				<div class="actions">
+					<button type="button" data-copy="doge_address">Copy</button>
+				</div>
+				<p class="note">
+					Send DOGE only on the Dogecoin network.
+				</p>
+				<p class="status" id="doge_address_status"></p>
+			</section>
+
+			<section class="card">
+				<h2>USDT</h2>
+				<p class="chain">USDT @ Tron (TRC20) chain</p>
+				<p class="label">Wallet address</p>
+				<div class="address_box" id="usdt_trc20_address">TJ8YzbDB2BYimgQJQ8ywFvE7787YMfo2gz</div>
+				<div class="actions">
+					<button type="button" data-copy="usdt_trc20_address">Copy</button>
+				</div>
+				<p class="note">
+					Send USDT only on Tron TRC20. Do not use ERC20, BEP20, or other networks.
+				</p>
+				<p class="status" id="usdt_trc20_address_status"></p>
+			</section>
+		</main>
+
+		<footer class="footer">
+			<p>
+				MMHL is an idea, a joke, a statement, and a little act of license theater.
+				Thank you for supporting its continued existence.
+			</p>
+		</footer>
+	</div>
+
+	<script>
+		(function(){
+			"use strict";
+
+			function set_status(id, text){
+				var el = document.getElementById(id + "_status");
+				if(!el) return;
+				el.textContent = text;
+				window.setTimeout(function(){
+					if(el.textContent === text){
+						el.textContent = "";
+					}
+				}, 1800);
+			}
+
+			async function copy_text(text){
+				if(navigator.clipboard && window.isSecureContext){
+					await navigator.clipboard.writeText(text);
+					return true;
+				}
+
+				var textarea = document.createElement("textarea");
+				textarea.value = text;
+				textarea.setAttribute("readonly", "");
+				textarea.style.position = "absolute";
+				textarea.style.left = "-9999px";
+				document.body.appendChild(textarea);
+				textarea.select();
+
+				try{
+					document.execCommand("copy");
+					document.body.removeChild(textarea);
+					return true;
+				}catch(err){
+					document.body.removeChild(textarea);
+					throw err;
+				}
+			}
+
+			document.addEventListener("click", function(event){
+				var button = event.target.closest("[data-copy]");
+				if(!button) return;
+
+				var target_id = button.getAttribute("data-copy");
+				var box = document.getElementById(target_id);
+				if(!box) return;
+
+				copy_text(box.textContent.trim())
+					.then(function(){
+						set_status(target_id, "Copied.");
+					})
+					.catch(function(){
+						set_status(target_id, "Copy failed.");
+					});
+			});
+		})();
+	</script>
+</body>
+</html>
